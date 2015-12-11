@@ -12,7 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView iv= (ImageView) findViewById(R.id.iv);
-        UIUtil.setScale(iv);
+        ImageView iv1= (ImageView) findViewById(R.id.iv1);
+        ImageView iv2= (ImageView) findViewById(R.id.iv2);
+        UIUtil.setScale(iv1);
+        UIUtil.setScaleWithShake(iv2);
     }
 }
