@@ -1,4 +1,4 @@
-package com.szy.blogcode.XAdapter;
+package com.szy.blogcode.xadapter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +33,6 @@ public class XAdapterActivity extends AppCompatActivity {
     private void initView() {
         ListView listview= (ListView) findViewById(R.id.listview);
         listview.setAdapter(new CommonAdapter<Bean>(this,mDatas,R.layout.item_xadapter_activity) {
-
             @Override
             public void bindData(ViewHolder holder, final Bean bean) {
                 holder.setText(R.id.tv_name,bean.name).setText(R.id.tv_content, bean.content);

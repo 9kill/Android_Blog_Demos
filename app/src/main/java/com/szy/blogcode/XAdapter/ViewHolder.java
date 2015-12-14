@@ -1,4 +1,4 @@
-package com.szy.blogcode.XAdapter;
+package com.szy.blogcode.xadapter;
 
 import android.content.Context;
 import android.util.SparseArray;

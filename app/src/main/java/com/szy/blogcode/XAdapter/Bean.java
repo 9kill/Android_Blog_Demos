@@ -1,4 +1,4 @@
-package com.szy.blogcode.XAdapter;
+package com.szy.blogcode.xadapter;
 
 /**
  * 类描述：

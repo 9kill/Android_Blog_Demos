@@ -17,8 +17,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".XAdapter.XAdapterActivity"
+            android:name=".xadapter.XAdapterActivity"
             android:label="@string/title_activity_xadapter" >
+        </activity>
+        <activity
+            android:name=".propertyanimation.PropertyAnimationActivity"
+            android:label="@string/title_activity_property_animation" >
         </activity>
     </application>
 
