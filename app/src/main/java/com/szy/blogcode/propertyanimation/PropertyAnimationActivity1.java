@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import android.widget.Button;
 
 import com.szy.blogcode.R;
 
-public class PropertyAnimationActivity extends AppCompatActivity{
+public class PropertyAnimationActivity1 extends AppCompatActivity{
 
     private Button btn_alpha_paa;
     private Button btn_rotation_paa;
@@ -25,7 +26,7 @@ public class PropertyAnimationActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_property_animation);
+        setContentView(R.layout.activity_property_animation1);
         btn_alpha_paa= (Button) findViewById(R.id.btn_alpha_paa);
         btn_rotation_paa= (Button) findViewById(R.id.btn_rotation_paa);
         btn_translation_paa= (Button) findViewById(R.id.btn_translation_paa);
@@ -84,6 +85,10 @@ public class PropertyAnimationActivity extends AppCompatActivity{
         AnimatorSet animatorSet= (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.anim_set);
         animatorSet.setTarget(btn_set_xml_paa);
         animatorSet.start();
+    }
+
+    public void next(View v){
+        startActivity(new Intent(this,PropertyAnimationActivity2.class));
     }
 
 }

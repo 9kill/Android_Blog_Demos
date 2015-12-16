@@ -5,4 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_xadapter">XAdapterActivity</string>
     <string name="title_activity_property_animation">PropertyAnimationActivity</string>
+    <string name="title_activity_slide_view">SlideViewActivity</string>
+    <string name="title_activity_property_animation2">PropertyAnimationActivity2</string>
+    <string name="title_activity_property_animation3">PropertyAnimationActivity3</string>
 </resources>

@@ -2,6 +2,6 @@
 <resources>
     <string-array name="activities">
         <item>com.szy.blogcode.xadapter.XAdapterActivity</item>
-        <item>com.szy.blogcode.propertyanimation.PropertyAnimationActivity</item>
+        <item>com.szy.blogcode.propertyanimation.PropertyAnimationActivity1</item>
     </string-array>
 </resources>

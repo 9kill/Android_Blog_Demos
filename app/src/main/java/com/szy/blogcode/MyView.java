@@ -1,13 +1,12 @@
 package com.szy.blogcode;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.Scroller;
 import android.widget.TextView;
+
+import com.nineoldandroids.view.ViewHelper;
 
 /**
  * 类描述：
@@ -16,57 +15,43 @@ import android.widget.TextView;
  */
 public class MyView extends TextView{
 
-    private Scroller mScroller;
-
+    private int mLastX;
+    private int mLastY;
 
     public MyView(Context context) {
         super(context);
-        init(context);
     }
 
     public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int downX = 0;
+        int x = (int) event.getRawX();
+        int y= (int) event.getRawY();
+        Log.d("MyView", "x=" + x);
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                downX= (int) event.getX();
-                Log.d("MyView", "DownX=" + downX);
-                return true;
+               break;
             case MotionEvent.ACTION_MOVE:
-                int dx= (int) (downX-event.getX());
-                Log.d("MyView", "DX=" + dx);
-                scrollTo(dx, 0);
-                return true;
+                int dx=x-mLastX;
+                int dy=y-mLastY;
+                int translationX= (int) (ViewHelper.getTranslationX(this)+dx);
+                int translationY= (int) (ViewHelper.getTranslationY(this)+dy);
+                ViewHelper.setTranslationX(this,translationX);
+                ViewHelper.setTranslationY(this,translationY);
+                break;
             case MotionEvent.ACTION_UP:
                 break;
+            default:
+                break;
         }
-        return super.onTouchEvent(event);
-    }
-
-    private void init(Context context) {
-        mScroller = new Scroller(context);
+        mLastX=x;
+        mLastY=y;
+        return true;
     }
 
 
-    public void smoothScroll(int destX,int destY){
-        int scrollX=getScrollX();
-        int dx=destX-scrollX;
-        mScroller.startScroll(scrollX,0,dx,0,1000);
-        invalidate();
-    }
-
-    @Override
-    public void computeScroll() {
-        if (mScroller.computeScrollOffset()){
-            Log.d("MyView", "scrollX=" + getScrollX());
-            scrollTo(mScroller.getCurrX(),0);
-            postInvalidate();
-        }
-    }
 }

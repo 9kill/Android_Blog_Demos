@@ -49,13 +49,21 @@
         android:textSize="16sp"
         android:onClick="set"/>
     <Button
-        android:id="@+id/btn_set_xml_paa"
+    android:id="@+id/btn_set_xml_paa"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="组合动画使用XML"
+    android:textColor="#333333"
+    android:textSize="16sp"
+    android:onClick="setUseXml"/>
+    <Button
+        android:id="@+id/btn_next_paa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="组合动画使用XML"
+        android:text="属性动画的高级使用"
         android:textColor="#333333"
         android:textSize="16sp"
-        android:onClick="setUseXml"/>
+        android:onClick="next"/>
 
 
 </LinearLayout>

@@ -3,6 +3,10 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 >
+    <com.szy.blogcode.MyView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_scale"/>
     <ListView
         android:id="@+id/main_listview"
         android:layout_width="match_parent"
