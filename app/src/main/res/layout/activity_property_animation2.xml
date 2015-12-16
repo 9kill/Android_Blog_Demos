@@ -14,5 +14,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="valueaobjectnimation"/>
+    <Button
+        android:text="属性动画加速器使用"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="interpolator"/>
+    <Button
+        android:id="@+id/btn_view_property_animator"
+        android:text="ViewPropertyAnimator的用法"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="viewPropertyAnimator"/>
 
 </LinearLayout>
