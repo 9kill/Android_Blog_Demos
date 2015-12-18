@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String className= (String) parent.getItemAtPosition(position);
+                String className = (String) parent.getItemAtPosition(position);
                 try {
-                    Class clazz=Class.forName(className);
+                    Class clazz = Class.forName(className);
                     startActivity(new Intent(MainActivity.this, clazz));
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         initData();
-
     }
 
     private void initData() {

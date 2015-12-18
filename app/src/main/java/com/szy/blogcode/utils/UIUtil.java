@@ -1,6 +1,7 @@
 package com.szy.blogcode.utils;
 
 import android.annotation.TargetApi;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -19,6 +20,7 @@ public class UIUtil {
     private static  String TAG="UIUtil";
     private static String FLAG_SCALE_NO_SHAKE="flag_scale_no_shake";//view scale no shake
     private static String FLAG_SCALE_WITH_SHAKE="flag_scale_with_shake";//view after scale,can shake
+    private static final String STATUS_BAR_HEIGHT_RES_NAME = "status_bar_height";
 
     public static void setScale(final View view,OnScaleViewClickListener listener){
         setScale(view,listener,FLAG_SCALE_NO_SHAKE);
@@ -89,7 +91,7 @@ public class UIUtil {
             Runnable action = new Runnable() {
                 @Override
                 public void run() {
-                    if (listener!=null){
+                    if (listener != null) {
                         listener.onClick();
                     }
                 }
@@ -106,4 +108,48 @@ public class UIUtil {
     public interface OnScaleViewClickListener {
         abstract void onClick();
     }
+
+    /**
+     * dip转换为px
+     * dip2px
+     * @param dpValue
+     * @return
+     * @since 1.0
+     */
+
+    public static int dip2px(int dpValue) {
+        final float scale = Resources.getSystem().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * px转换为dip
+     * px2dip
+     * @param pxValue
+     * @return
+     * @since 1.0
+     */
+    public static int px2dip(int pxValue) {
+        final float scale = Resources.getSystem().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+    /**
+     * 计算状态栏高度高度
+     * getStatusBarHeight
+     *
+     * @return
+     */
+    public static int getStatusBarHeight() {
+        return getInternalDimensionSize(Resources.getSystem(), STATUS_BAR_HEIGHT_RES_NAME);
+    }
+
+    private static int getInternalDimensionSize(Resources res, String key) {
+        int result = 0;
+        int resourceId = res.getIdentifier(key, "dimen", "android");
+        if (resourceId > 0) {
+            result = res.getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
 }

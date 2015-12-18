@@ -1,15 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 >
-    <com.szy.blogcode.MyView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/ic_scale"/>
+
     <ListView
         android:id="@+id/main_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     </ListView>
-</LinearLayout>
+    <com.szy.blogcode.view.HoveringView
+        android:id="@+id/myview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_scale"
+        />
+</RelativeLayout>
