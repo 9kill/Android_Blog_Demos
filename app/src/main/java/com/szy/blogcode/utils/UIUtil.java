@@ -1,8 +1,6 @@
 package com.szy.blogcode.utils;
 
-import android.annotation.TargetApi;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,6 +8,7 @@ import android.view.View;
 import com.facebook.rebound.SimpleSpringListener;
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringSystem;
+import com.nineoldandroids.view.ViewHelper;
 
 /**
  * 类描述：
@@ -18,34 +17,39 @@ import com.facebook.rebound.SpringSystem;
  */
 public class UIUtil {
     private static  String TAG="UIUtil";
-    private static String FLAG_SCALE_NO_SHAKE="flag_scale_no_shake";//view scale no shake
-    private static String FLAG_SCALE_WITH_SHAKE="flag_scale_with_shake";//view after scale,can shake
+
     private static final String STATUS_BAR_HEIGHT_RES_NAME = "status_bar_height";
 
-    public static void setScale(final View view,OnScaleViewClickListener listener){
-        setScale(view,listener,FLAG_SCALE_NO_SHAKE);
+    public interface OnScaleViewClickListener {
+        public abstract void onClick();
     }
 
-    public static void setScaleWithShake(final View view,OnScaleViewClickListener listener){
-        setScale(view,listener,FLAG_SCALE_WITH_SHAKE);
-    }
-    private static void setScale(final View view, final OnScaleViewClickListener listener, final String flag){
+    private static boolean clickUp;
+
+
+    public static void setScale(final View view, final OnScaleViewClickListener listener){
         SpringSystem springSystem=SpringSystem.create();
         final Spring spring=springSystem.createSpring();
         final Handler handler=new Handler();
-        spring.addListener(new SimpleSpringListener() {
+        final Runnable callback=new Runnable() {
+            @Override
+            public void run() {
+                if (listener!=null){
+                    listener.onClick();
+                }
+            }
+        };
+        spring.addListener(new SimpleSpringListener(){
             @Override
             public void onSpringUpdate(Spring spring) {
-                float value = (float) spring.getCurrentValue();
-                final float scale = 1f - (value * 0.4f);
-                handler.postDelayed(new Runnable() {
-                    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-                    @Override
-                    public void run() {
-                        view.setScaleX(scale);
-                        view.setScaleY(scale);
-                    }
-                }, 10);
+                float value= (float) spring.getCurrentValue();
+                float scale= (float) (1f-0.382*value);
+                ViewHelper.setScaleX(view, scale);
+                ViewHelper.setScaleY(view,scale);
+                if (scale==1f&&clickUp){
+                    handler.removeCallbacks(callback);
+                    handler.post(callback);
+                }
             }
         });
         view.setOnTouchListener(new View.OnTouchListener() {
@@ -56,57 +60,14 @@ public class UIUtil {
                         spring.setEndValue(1);
                         break;
                     case MotionEvent.ACTION_UP:
-                        if (FLAG_SCALE_WITH_SHAKE.equals(flag)) {
-                            float[] floatArray = new float[]{-0.5f, 0, 0.5f, 0};
-                            scaleValueInRangeDelayed(floatArray, 100, 0);
-                        } else {
-                            spring.setEndValue(0);
-                        }
-                        break;
-                }
-                if (listener == null) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+                        clickUp=true;
+                       spring.setEndValue(0);
 
-            int tempPos;
-
-            private void scaleValueInRangeDelayed(final float[] floatArray, final int delayedTime, int pos) {
-                tempPos = pos;
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        spring.setEndValue(floatArray[tempPos]);
-                        tempPos++;
-                        if (tempPos < floatArray.length)
-                            scaleValueInRangeDelayed(floatArray, delayedTime, tempPos);
-                    }
-                }, delayedTime);
+                }
+                return true;
             }
 
         });
-        view.setOnClickListener(new View.OnClickListener() {
-            Runnable action = new Runnable() {
-                @Override
-                public void run() {
-                    if (listener != null) {
-                        listener.onClick();
-                    }
-                }
-            };
-
-            @Override
-            public void onClick(View v) {
-                v.removeCallbacks(action);
-                v.postDelayed(action, 250);
-            }
-        });
-
-    }
-    public interface OnScaleViewClickListener {
-        abstract void onClick();
     }
 
     /**
