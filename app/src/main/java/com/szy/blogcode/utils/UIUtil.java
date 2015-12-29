@@ -94,6 +94,32 @@ public class UIUtil {
         final float scale = Resources.getSystem().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
+
+    /**
+     * sp转为px
+     * sp2px
+     * @param value
+     * @return
+     * @since 1.0
+     */
+    public static int sp2px(float value) {
+        Resources r = Resources.getSystem();
+        float spvalue = value * r.getDisplayMetrics().scaledDensity;
+        return (int) (spvalue + 0.5f);
+    }
+
+    /**
+     * px转为sp
+     * px2sp
+     * @param pxValue
+     * @return
+     * @since 1.0
+     */
+    public static int px2sp(float pxValue) {
+        Resources r = Resources.getSystem();
+        float scale = r.getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / scale + 0.5f);
+    }
     /**
      * 计算状态栏高度高度
      * getStatusBarHeight

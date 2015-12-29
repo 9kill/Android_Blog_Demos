@@ -5,12 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.szy.blogcode.utils.UIUtil;
-import com.szy.blogcode.view.HoveringView;
 import com.szy.blogcode.xadapter.CommonAdapter;
 import com.szy.blogcode.xadapter.ViewHolder;
 
@@ -36,14 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
-            }
-        });
-        HoveringView myview= (HoveringView) findViewById(R.id.myview);
-        ImageView iv= (ImageView) findViewById(R.id.iv);
-        UIUtil.setScale(iv, new UIUtil.OnScaleViewClickListener() {
-            @Override
-            public void onClick() {
-                Toast.makeText(getApplicationContext(),"Onclick",Toast.LENGTH_SHORT).show();
             }
         });
         initData();
