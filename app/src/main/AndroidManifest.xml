@@ -32,6 +32,16 @@
             android:name=".propertyanimation.PropertyAnimationActivity3"
             android:label="@string/title_activity_property_animation3" >
         </activity>
+        <activity
+            android:name=".remoteviews.SendActivity"
+            android:label="@string/title_activity_a" >
+        </activity>
+        <activity
+            android:name=".remoteviews.ReceiveActivity"
+            android:label="@string/title_activity_b"
+            android:process=":remote"
+            >
+        </activity>
     </application>
 
 </manifest>

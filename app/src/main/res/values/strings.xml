@@ -8,4 +8,6 @@
     <string name="title_activity_slide_view">SlideViewActivity</string>
     <string name="title_activity_property_animation2">PropertyAnimationActivity2</string>
     <string name="title_activity_property_animation3">PropertyAnimationActivity3</string>
+    <string name="title_activity_a">SendActivity</string>
+    <string name="title_activity_b">ReceiveActivity</string>
 </resources>
