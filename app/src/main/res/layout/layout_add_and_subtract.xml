@@ -34,10 +34,11 @@
                 android:layout_weight="1"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:text="6.7"
+                android:text="0"
                 android:maxLength="4"
                 android:inputType="number|numberDecimal"
                 android:textSize="20sp"
+                android:textCursorDrawable="@null"
                 android:background="@android:color/transparent"
                 android:imeOptions="actionSearch"
                 />

@@ -12,6 +12,7 @@
             <enum name="numberDecimal" value="1"/><!--最小增长大小 0.1-->
         </attr>
         <attr name="unitName" format="string"/>
+        <attr name="inputTextValue" format="string"/>
         <attr name="inputTextColor" format="color"/>
         <attr name="inputTextSize" format="dimension"/>
     </declare-styleable>

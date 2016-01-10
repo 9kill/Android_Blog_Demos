@@ -19,11 +19,6 @@ import android.widget.TextView;
 
 import com.szy.blogcode.R;
 
-import static com.szy.blogcode.R.styleable.AddAndSubtractEditTextView_inputTextColor;
-import static com.szy.blogcode.R.styleable.AddAndSubtractEditTextView_inputTextSize;
-import static com.szy.blogcode.R.styleable.AddAndSubtractEditTextView_inputType;
-import static com.szy.blogcode.R.styleable.AddAndSubtractEditTextView_unitName;
-
 
 /**
  * 类描述：
@@ -51,10 +46,11 @@ public class AddAndSubtractEditTextView extends LinearLayout {
         TypedArray a = null;
         try {
             a=getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.AddAndSubtractEditTextView, 0, 0);
-            inputType= TextUtils.isEmpty(a.getString(AddAndSubtractEditTextView_inputType))?"0":a.getString(AddAndSubtractEditTextView_inputType);
-            String unitName=TextUtils.isEmpty(a.getString(AddAndSubtractEditTextView_unitName))?"mmHg":a.getString(AddAndSubtractEditTextView_unitName);
-            int textColor=a.getColor(AddAndSubtractEditTextView_inputTextColor, Color.parseColor("#5CCE90"));
-            float textSize=a.getDimension(AddAndSubtractEditTextView_inputTextSize, 18);
+            inputType= TextUtils.isEmpty(a.getString(R.styleable.AddAndSubtractEditTextView_inputTypeAccuracy))?"0":a.getString(R.styleable.AddAndSubtractEditTextView_inputTypeAccuracy);
+            String unitName=TextUtils.isEmpty(a.getString(R.styleable.AddAndSubtractEditTextView_unitName))?"mmHg":a.getString(R.styleable.AddAndSubtractEditTextView_unitName);
+            String text=TextUtils.isEmpty(a.getString(R.styleable.AddAndSubtractEditTextView_inputTextValue))?"0":a.getString(R.styleable.AddAndSubtractEditTextView_inputTextValue);
+            int textColor=a.getColor(R.styleable.AddAndSubtractEditTextView_inputTextColor, Color.parseColor("#5CCE90"));
+            float textSize=a.getDimension(R.styleable.AddAndSubtractEditTextView_inputTextSize, 18);
             LayoutInflater.from(getContext()).inflate(R.layout.layout_add_and_subtract, this);
             TextView unit= (TextView) findViewById(R.id.unit);
             add= (TextView) findViewById(R.id.add);
@@ -82,22 +78,22 @@ public class AddAndSubtractEditTextView extends LinearLayout {
             mEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId== EditorInfo.IME_ACTION_SEARCH){
-                        String text=mEditText.getText().toString();
-                        if (!TextUtils.isEmpty(text)){
-                            if (FLAG_NUMBER.equals(inputType)){
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        String text = mEditText.getText().toString();
+                        if (!TextUtils.isEmpty(text)) {
+                            if (FLAG_NUMBER.equals(inputType)) {
                                 int intNum;
                                 if (text.contains(".")) {
-                                    intNum= (int) Float.valueOf(text).floatValue();
+                                    intNum = (int) Float.valueOf(text).floatValue();
                                 } else {
-                                    intNum=Integer.valueOf(text);
+                                    intNum = Integer.valueOf(text);
                                 }
-                                if (mOnNumberChangeListener!=null){
+                                if (mOnNumberChangeListener != null) {
                                     mOnNumberChangeListener.OnSerach(intNum);
                                 }
-                            }else if (FLAG_NUMBERDECIMAL.equals(inputType)){
-                                float floatNum=Float.valueOf(String.format("%.1f",Float.valueOf(text)));
-                                if (mOnNumberChangeListener!=null){
+                            } else if (FLAG_NUMBERDECIMAL.equals(inputType)) {
+                                float floatNum = Float.valueOf(String.format("%.1f", Float.valueOf(text)));
+                                if (mOnNumberChangeListener != null) {
                                     mOnNumberChangeListener.OnSerach(floatNum);
                                 }
                             }
@@ -116,6 +112,7 @@ public class AddAndSubtractEditTextView extends LinearLayout {
             }
 
             unit.setText(unitName);
+            mEditText.setText(text);
             mEditText.setSelection(mEditText.getText().toString().length());
             mEditText.setTextColor(textColor);
             mEditText.setTextSize(textSize);
@@ -250,4 +247,13 @@ public class AddAndSubtractEditTextView extends LinearLayout {
 
         }
     }
+
+    public String getText(){
+        return mEditText.getText().toString();
+    }
+
+    public void setText(String text){
+        mEditText.setText(text);
+    }
+
 }
