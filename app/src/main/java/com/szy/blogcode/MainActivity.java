@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.szy.blogcode.remoteviews.ReceiveActivity;
 import com.szy.blogcode.xadapter.CommonAdapter;
 import com.szy.blogcode.xadapter.ViewHolder;
 
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         initData();
-        startActivity(new Intent(this, ReceiveActivity.class));
     }
 
     private void initData() {

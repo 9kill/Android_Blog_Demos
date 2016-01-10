@@ -39,8 +39,11 @@
         <activity
             android:name=".remoteviews.ReceiveActivity"
             android:label="@string/title_activity_b"
-            android:process=":remote"
-            >
+            android:process=":remote" >
+        </activity>
+        <activity
+            android:name=".view.ShowCustomViewActivity"
+            android:label="@string/title_activity_show_custom_view" >
         </activity>
     </application>
 

@@ -3,5 +3,6 @@
     <string-array name="activities">
         <item>com.szy.blogcode.xadapter.XAdapterActivity</item>
         <item>com.szy.blogcode.propertyanimation.PropertyAnimationActivity1</item>
+        <item>com.szy.blogcode.view.ShowCustomViewActivity</item>
     </string-array>
 </resources>

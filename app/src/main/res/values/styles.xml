@@ -10,4 +10,13 @@
         <attr name="textSize" format="dimension"></attr>
         <attr name="textColor" format="color"></attr>
     </declare-styleable>
+    <declare-styleable name="AddAndSubtractEditTextView">
+        <attr name="inputType" format="string">
+            <enum name="number" value="0"/>
+            <enum name="numberDecimal" value="1"/>
+        </attr>
+        <attr name="unitName" format="string"/>
+        <attr name="inputTextColor" format="color"/>
+        <attr name="inputTextSize" format="dimension"/>
+    </declare-styleable>
 </resources>

@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 /**
- * 类描述：
+ * 类描述：生成不同分辨率的尺寸文件
  * 创建人：sunzhenyu
  * 创建时间：2015/12/29 17:15
  */
