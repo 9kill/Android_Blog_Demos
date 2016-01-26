@@ -4,5 +4,7 @@
         <item>com.szy.blogcode.xadapter.XAdapterActivity</item>
         <item>com.szy.blogcode.propertyanimation.PropertyAnimationActivity1</item>
         <item>com.szy.blogcode.view.ShowCustomViewActivity</item>
+        <item>com.szy.blogcode.cheesequare.CheeseSquareActivity</item>
+        <item>com.szy.blogcode.http.XUtilsDemoActivity</item>
     </string-array>
 </resources>

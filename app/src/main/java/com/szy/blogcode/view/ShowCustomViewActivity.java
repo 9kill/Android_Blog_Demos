@@ -12,6 +12,12 @@ public class ShowCustomViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_custom_view);
+        //可加减的的编辑输入框
+        addAndSubtractEditTextView();
+        //
+    }
+
+    private void addAndSubtractEditTextView() {
         AddAndSubtractEditTextView aas= (AddAndSubtractEditTextView) findViewById(R.id.etv_aas);
         aas.setOnNumberChangeListener(new AddAndSubtractEditTextView.OnNumberChangeListener() {
 
