@@ -6,5 +6,6 @@
         <item>com.szy.blogcode.view.ShowCustomViewActivity</item>
         <item>com.szy.blogcode.cheesequare.CheeseSquareActivity</item>
         <item>com.szy.blogcode.http.XUtilsDemoActivity</item>
+        <item>com.szy.blogcode.imagecache.ImageLoaderActivity</item>
     </string-array>
 </resources>

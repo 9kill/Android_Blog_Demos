@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
-
     defaultConfig {
         applicationId "com.szy.blogcode"
         minSdkVersion 9
@@ -15,9 +14,18 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "LOG_DEBUG", "false"
         }
         debug {
             buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+    }
+    productFlavors {
+        baidu {
+            manifestPlaceholders (["CATEGORY":"baidu"])
+        }
+        wandoujia {
+            manifestPlaceholders (["CATEGORY":"wandoujia"])
         }
     }
 }
