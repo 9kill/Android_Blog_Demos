@@ -7,5 +7,6 @@
         <item>com.szy.blogcode.cheesequare.CheeseSquareActivity</item>
         <item>com.szy.blogcode.http.XUtilsDemoActivity</item>
         <item>com.szy.blogcode.imagecache.ImageLoaderActivity</item>
+        <item>com.szy.blogcode.doodle.DoodleActivity</item>
     </string-array>
 </resources>

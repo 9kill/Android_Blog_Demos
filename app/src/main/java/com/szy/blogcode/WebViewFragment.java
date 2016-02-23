@@ -16,7 +16,7 @@ public class WebViewFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView=inflater.inflate(R.layout.fragment_web_view, container, false);
         WebView webView = (WebView) rootView.findViewById(R.id.webView);
-        WebSettings webSettings=webView.getSettings();
+        WebSettings webSettings= webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/crash.html");
 //        webView.loadUrl("http://www.baidu.com");

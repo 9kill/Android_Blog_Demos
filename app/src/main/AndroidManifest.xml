@@ -12,7 +12,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <meta-data android:name="category" android:value="${CATEGORY}"/>
+        <meta-data
+            android:name="category"
+            android:value="${CATEGORY}" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -64,6 +67,10 @@
         <activity
             android:name=".imagecache.ImageLoaderActivity"
             android:label="@string/title_activity_image_loader" >
+        </activity>
+        <activity
+            android:name=".doodle.DoodleActivity"
+            android:label="@string/title_activity_doodle" >
         </activity>
     </application>
 
