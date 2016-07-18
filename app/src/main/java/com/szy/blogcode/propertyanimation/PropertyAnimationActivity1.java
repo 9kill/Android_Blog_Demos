@@ -82,7 +82,7 @@ public class PropertyAnimationActivity1 extends AppCompatActivity{
     }
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void setUseXml(View v){
-        AnimatorSet animatorSet= (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.anim_set);
+        AnimatorSet animatorSet= (AnimatorSet) AnimatorInflater.loadAnimator(this,R.anim.anim_set);
         animatorSet.setTarget(btn_set_xml_paa);
         animatorSet.start();
     }

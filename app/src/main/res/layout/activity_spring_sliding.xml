@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_animation"
+        android:text="使用animation实现弹性滑动"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"/>
+    <!--使用延时策略-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用延时策略"/>
+
+    <Button
+        android:id="@+id/btn_handler"
+        android:text="使用handler实现弹性滑动"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"/>
+    <Button
+        android:id="@+id/btn_view_postDelayed"
+        android:text="使用view#postDelayed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"/>
+    <Button
+        android:id="@+id/btn_thread_sleep"
+        android:text="使用thread#sleep实现弹性滑动"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"/>
+    <Button
+        android:id="@+id/btn_timer_timertask"
+        android:text="使用Timer定时器实现弹性滑动"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"/>
+
+
+</LinearLayout>

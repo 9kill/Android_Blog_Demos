@@ -1,76 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.szy.blogcode" >
+<manifest package="com.szy.blogcode"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="category"
-            android:value="${CATEGORY}" />
+            android:value="${CATEGORY}"/>
+        <!-- 友盟反馈 -->
+        <activity android:name="com.umeng.fb.ConversationActivity"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5735758ee0f55a6c420002ea"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="szy"/>
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".xadapter.XAdapterActivity"
-            android:label="@string/title_activity_xadapter" >
+            android:label="@string/title_activity_xadapter">
         </activity>
         <activity
             android:name=".propertyanimation.PropertyAnimationActivity1"
-            android:label="@string/title_activity_property_animation" >
+            android:label="@string/title_activity_property_animation">
         </activity>
         <activity
             android:name=".propertyanimation.PropertyAnimationActivity2"
-            android:label="@string/title_activity_property_animation2" >
+            android:label="@string/title_activity_property_animation2">
         </activity>
         <activity
             android:name=".propertyanimation.PropertyAnimationActivity3"
-            android:label="@string/title_activity_property_animation3" >
+            android:label="@string/title_activity_property_animation3">
         </activity>
         <activity
             android:name=".remoteviews.SendActivity"
-            android:label="@string/title_activity_a" >
+            android:label="@string/title_activity_a">
         </activity>
         <activity
             android:name=".remoteviews.ReceiveActivity"
             android:label="@string/title_activity_b"
-            android:process=":remote" >
+            android:process=":remote">
         </activity>
         <activity
             android:name=".view.ShowCustomViewActivity"
             android:label="@string/title_activity_show_custom_view"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".cheesequare.CheeseSquareActivity"
             android:label="@string/title_activity_cheese_square"
-            android:theme="@style/Theme.CheeseSquare" >
+            android:theme="@style/Theme.CheeseSquare">
         </activity>
         <activity
             android:name=".http.XUtilsDemoActivity"
-            android:label="@string/title_activity_http" >
+            android:label="@string/title_activity_http">
         </activity>
         <activity
             android:name=".imagecache.ImageLoaderActivity"
-            android:label="@string/title_activity_image_loader" >
+            android:label="@string/title_activity_image_loader">
         </activity>
         <activity
             android:name=".doodle.DoodleActivity"
-            android:label="@string/title_activity_doodle" >
+            android:label="@string/title_activity_doodle">
+        </activity>
+        <activity
+            android:name=".porterduffxfermode.PorterDuffXfermodeActivity"
+            android:label="@string/title_activity_porter_duff_xfermode">
+        </activity>
+        <activity
+            android:name=".springsliding.SpringSlidingActivity"
+            android:label="@string/title_activity_spring_sliding">
+        </activity>
+        <activity android:name=".umengfeebback.UMengFBActivity">
+        </activity>
+        <activity android:name=".DrawerLayoutActivity">
+        </activity>
+        <activity android:name=".scrollview.ScrollActivity">
+        </activity>
+        <activity android:name=".keep.progress.active.GrayServiceActivity">
+        </activity>
+
+        <service android:name=".keep.progress.active.GrayService"/>
+        <service android:name=".keep.progress.active.GrayService$GrayInnerService"/>
+
+        <activity android:name=".recycleview.RecycleviewActivity">
+        </activity>
+        <activity android:name=".slidingconflict.SlidingConflictActivity">
+        </activity>
+        <activity android:name=".https.HttpsActivity">
         </activity>
     </application>
 

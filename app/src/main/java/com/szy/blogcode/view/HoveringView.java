@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.ImageView;
@@ -63,11 +64,18 @@ public class HoveringView extends ImageView{
         int contentWidth=displayMetrics.widthPixels-this.getWidth();
         int contentHeight=displayMetrics.heightPixels- UIUtil.getStatusBarHeight()-UIUtil.dip2px(55)-this.getHeight();
         int x = (int) event.getRawX();
+        int x2 = (int) event.getX();
+        int x3= (int) getX();
         int y= (int) event.getRawY();
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
                 downX=x;
                 downY=y;
+                Log.d("HoveringView", "left="+getLeft());
+                Log.d("HoveringView", "tx="+getTranslationX());
+                Log.d("HoveringView", "x="+x);
+                Log.d("HoveringView", "x2="+x2);
+                Log.d("HoveringView", "x3="+x3);
                 break;
             case MotionEvent.ACTION_MOVE:
                 int dx=x-mLastX;
@@ -107,6 +115,5 @@ public class HoveringView extends ImageView{
         mLastY=y;
         return true;
     }
-
 
 }

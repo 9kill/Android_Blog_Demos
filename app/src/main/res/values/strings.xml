@@ -13,9 +13,23 @@
     <string name="title_activity_show_custom_view">ShowCustomViewActivity</string>
     <string name="title_activity_cheese_square">CheesequareActivity</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_http">HttpActivity</string>
     <string name="title_activity_image_loader">ImageLoaderActivity</string>
     <string name="title_activity_doodle">DoodleActivity</string>
+    <string name="title_activity_porter_duff_xfermode">PorterDuffXfermodeActivity</string>
+    <string name="title_activity_spring_sliding">SpringSlidingActivity</string>
+    <string name="title_activity_umeng_feed_back">UMengFeedBackActivity</string>
+    <!--umeng-->
+    <string name="action_feedback">Feedback</string>
+    <string name="action_new_conversation">新建会话</string>
+    <string name="feedback_title">用户反馈</string>
+    <string name="fb_fragment_activity">使用 SDK Fragment</string>
+    <string name="sdk_fb_activity">使用 SDK Activity</string>
+    <string name="multi_conversation_activity">多会话模式</string>
+    <string name="title_item_list">反馈列表</string>
+    <string name="fb_help_activity">帮助页面</string>
+    <!--other-->
+    <string name="expandable_text">开发及收款方会计师的反馈单师傅看电视耐腐蚀的快到底是发生大幅度双方的反对方的身份的身份发顺丰第三方的身份双方的身份第三方的身份捷付款水电费疯狂的送积分卡三季度付电费和电视剧开发的</string>
 </resources>

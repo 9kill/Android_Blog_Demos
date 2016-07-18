@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
  * 创建时间：2016/1/26 17:07
  */
 public class BitmapUtil {
-    private static Bitmap drawableToBitamp(Drawable drawable)
+    public static Bitmap drawableToBitamp(Drawable drawable)
     {
         int w = drawable.getIntrinsicWidth();
         int h = drawable.getIntrinsicHeight();

@@ -8,7 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+        <!--悬浮球-->
+        <com.szy.blogcode.view.HoveringView
+            android:id="@+id/hoveringView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/grass"/>
+        <!--可加减的的编辑输入框-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +33,100 @@
                 app:unitName="mmol/L"
                 />
         </LinearLayout>
+        <!--smoothScrollView-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_scroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="smoothScrollView"/>
+
+            <com.szy.blogcode.view.SmoothScrollView
+                android:id="@+id/smoothScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="smoothScrollView"
+                />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <Button
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开始"/>
+
+            <com.szy.blogcode.view.Qview
+                android:id="@+id/qview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </FrameLayout>
+        <!--可伸缩文本-->
+        <com.ms.square.android.expandabletextview.ExpandableTextView
+            android:id="@+id/expand_text_view"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            expandableTextView:animDuration="200"
+            expandableTextView:maxCollapsedLines="4">
+
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#666666"
+                android:textSize="16sp"/>
+
+            <ImageButton
+                android:id="@id/expand_collapse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:background="@android:color/transparent"
+                android:padding="16dp"/>
+        </com.ms.square.android.expandabletextview.ExpandableTextView>
+        <!--水波纹view-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.szy.blogcode.view.RippleView
+                android:id="@+id/rippleView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+            <Button
+                android:id="@+id/btn_start_ripple"
+                android:layout_below="@+id/rippleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="startRipple"
+                android:text="开始"/>
+            <Button
+                android:id="@+id/btn_stop_ripple"
+                android:layout_below="@+id/rippleView"
+                android:layout_toRightOf="@+id/btn_start_ripple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="stopRipple"
+                android:text="结束"/>
+            <TextView
+                android:id="@+id/tv_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="0%"
+                android:textSize="30sp"/>
+        </RelativeLayout>
     </LinearLayout>
 
 </ScrollView>

@@ -100,6 +100,7 @@ public class HorizontalScrollView extends ViewGroup {
             case MotionEvent.ACTION_DOWN:
                 if (!mScroller.isFinished()) {
                     mScroller.abortAnimation();
+                    intercept=true;
                 }
                 break;
             case MotionEvent.ACTION_MOVE:

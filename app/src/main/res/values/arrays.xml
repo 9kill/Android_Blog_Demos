@@ -8,5 +8,13 @@
         <item>com.szy.blogcode.http.XUtilsDemoActivity</item>
         <item>com.szy.blogcode.imagecache.ImageLoaderActivity</item>
         <item>com.szy.blogcode.doodle.DoodleActivity</item>
+        <item>com.szy.blogcode.porterduffxfermode.PorterDuffXfermodeActivity</item>
+        <item>com.szy.blogcode.springsliding.SpringSlidingActivity</item>
+        <item>com.szy.blogcode.umengfeebback.UMengFBActivity</item>
+        <item>com.szy.blogcode.DrawerLayoutActivity</item>
+        <item>com.szy.blogcode.keep.progress.active.GrayServiceActivity</item>
+        <item>com.szy.blogcode.recycleview.RecycleviewActivity</item>
+        <item>com.szy.blogcode.slidingconflict.SlidingConflictActivity</item>
+        <item>com.szy.blogcode.https.HttpsActivity</item>
     </string-array>
 </resources>
