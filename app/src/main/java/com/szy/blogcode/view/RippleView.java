@@ -1,5 +1,6 @@
 package com.szy.blogcode.view;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -18,15 +19,18 @@ import android.view.animation.AccelerateDecelerateInterpolator;
  * 创建时间：2016/7/18 15:47
  */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class RippleView extends View implements ValueAnimator.AnimatorUpdateListener{
+public class RippleView extends View implements ValueAnimator.AnimatorUpdateListener,ValueAnimator.AnimatorListener {
+    private static final int mTextSize=dip2px(20);
     private Paint mInStrokePaint;
     private Paint mOutStrokePaint;
+    private Paint mTextPaint;
     private int mRadius;
     private int mChangeRadius;
     private float mCx;
     private float mCy;
     private ValueAnimator mAnimation;
     private RippleListener mRippleListener;
+    private float mFraction;
 
     public RippleView(Context context) {
         super(context);
@@ -54,9 +58,14 @@ public class RippleView extends View implements ValueAnimator.AnimatorUpdateList
         mOutStrokePaint.setStyle(Paint.Style.STROKE);
         mOutStrokePaint.setAntiAlias(true);
         mOutStrokePaint.setColor(Color.WHITE);
-        mOutStrokePaint.setStrokeWidth(dip2px(3));
+        mOutStrokePaint.setStrokeWidth(dip2px(1));
 
-        mRadius=dip2px(100);
+        mTextPaint = new Paint();
+        mTextPaint.setAntiAlias(true);
+        mTextPaint.setColor(Color.WHITE);
+        mTextPaint.setTextSize(mTextSize);
+
+        mRadius=dip2px(50);
         mChangeRadius=mRadius;
 
     }
@@ -80,10 +89,14 @@ public class RippleView extends View implements ValueAnimator.AnimatorUpdateList
         canvas.drawCircle(mCx,mCy,mRadius,mInStrokePaint);
         if (mChangeRadius >= 1.5 * mRadius) {
             canvas.drawCircle(mCx,mCy,mChangeRadius-(mRadius/2),mOutStrokePaint);
+            mOutStrokePaint.setAlpha((int) (255*(1-mFraction)));
         }
         if (mChangeRadius >= 2* mRadius) {
             canvas.drawCircle(mCx,mCy,mChangeRadius-mRadius,mOutStrokePaint);
         }
+        mOutStrokePaint.setAlpha((int) (255*(1-mFraction)));
+        String value=(int)(mFraction*100)+"%";
+        canvas.drawText(value,mCx-mTextPaint.measureText(value)/2,mCy+mTextSize/2,mTextPaint);
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -91,10 +104,11 @@ public class RippleView extends View implements ValueAnimator.AnimatorUpdateList
         if (mAnimation == null) {
             mAnimation = new ValueAnimator();
             mAnimation.setIntValues(mRadius, (int) (mCx > mCy ? mCx * 1.4 : mCy * 1.4));
-            mAnimation.setDuration(1000);
+            mAnimation.setDuration(1500);
             mAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
 //            mAnimation.setRepeatCount(3);
             mAnimation.addUpdateListener(this);
+            mAnimation.addListener(this);
             mAnimation.start();
         } else {
             if (!mAnimation.isRunning()) {
@@ -115,10 +129,31 @@ public class RippleView extends View implements ValueAnimator.AnimatorUpdateList
     @Override
     public void onAnimationUpdate(ValueAnimator animation) {
         mChangeRadius= (int) animation.getAnimatedValue();
+        mFraction=animation.getAnimatedFraction();
         postInvalidate();
         if (mRippleListener != null) {
             mRippleListener.onRippleUpdate(animation);
         }
+    }
+
+    @Override
+    public void onAnimationStart(Animator animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animator animation) {
+       mChangeRadius=mRadius;
+    }
+
+    @Override
+    public void onAnimationCancel(Animator animation) {
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animator animation) {
+
     }
 
     public interface RippleListener{

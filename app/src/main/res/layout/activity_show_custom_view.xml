@@ -119,13 +119,6 @@
                 android:layout_height="wrap_content"
                 android:onClick="stopRipple"
                 android:text="结束"/>
-            <TextView
-                android:id="@+id/tv_percent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="0%"
-                android:textSize="30sp"/>
         </RelativeLayout>
     </LinearLayout>
 

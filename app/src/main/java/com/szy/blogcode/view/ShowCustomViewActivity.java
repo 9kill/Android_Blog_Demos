@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ms.square.android.expandabletextview.ExpandableTextView;
@@ -19,7 +18,6 @@ public class ShowCustomViewActivity extends AppCompatActivity implements View.On
     private SmoothScrollView smoothScrollView;
     private Qview qview;
     private RippleView mRippleView;
-    private TextView mTv_percent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +43,6 @@ public class ShowCustomViewActivity extends AppCompatActivity implements View.On
         Button progress=(Button)findViewById(R.id.progress);
         qview = (Qview) findViewById(R.id.qview);
         mRippleView = (RippleView) findViewById(R.id.rippleView);
-        mTv_percent=(TextView)findViewById(R.id.tv_percent);
         Button btn_start_ripple = (Button) findViewById(R.id.btn_start_ripple);
         Button btn_stop_ripple = (Button) findViewById(R.id.btn_stop_ripple);
 
@@ -70,9 +67,6 @@ public class ShowCustomViewActivity extends AppCompatActivity implements View.On
             @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
             @Override
             public void onRippleUpdate(ValueAnimator animation) {
-                float value=animation.getAnimatedFraction();
-                int percent = (int) (value*100);
-                mTv_percent.setText(String.valueOf(percent)+"%");
             }
         });
     }
