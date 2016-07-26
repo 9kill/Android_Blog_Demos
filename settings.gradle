@@ -1,1 +1,1 @@
-include ':xutils', ':app'
+include ':xutils', ':app', ':library'

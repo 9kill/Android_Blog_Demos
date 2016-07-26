@@ -46,7 +46,7 @@ public class RecycleviewActivity extends AppCompatActivity {
         List<String> datas=initData();
         RecyclerView recyclerView= (RecyclerView) findViewById(R.id.recyclerView);
         //LayoutManager 布局显示管理器
-//        LinearLayoutManager layoutManager= new LinearLayoutManager(this);// LinearLayoutManager 现行管理器，支持横向、纵向。
+//        LinearLayoutManager layoutManager= new LinearLayoutManager(this);// LinearLayoutManager 线性管理器，支持横向、纵向。
 //        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 //        GridLayoutManager layoutManager=new GridLayoutManager(this,4);//GridLayoutManager 网格布局管理器
         StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);//StaggeredGridLayoutManager 瀑布就式布局管理器
