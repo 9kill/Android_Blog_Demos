@@ -3,7 +3,6 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url "https://raw.githubusercontent.com/umeng/mvn-repo-umeng/master/repository"}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.0.0'
